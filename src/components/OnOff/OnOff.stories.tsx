@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {OnOff} from "./OnOff";
+import {action} from "@storybook/addon-actions";
 
 
 export default {
@@ -7,8 +8,10 @@ export default {
     component: OnOff
 }
 
-export const OnMode = () => <OnOff on={true} setOn={x=>x}/>
-export const OffMode = () => <OnOff on={false} setOn={x=>x}/>
+const callback = action('on or off was clicked')
+
+export const OnMode = () => <OnOff on={true} setOn={callback}/>
+export const OffMode = () => <OnOff on={false} setOn={callback}/>
 
 
 export const ChangeMode = () => {
