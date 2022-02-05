@@ -5,7 +5,7 @@ export type RatingType = 0 | 1 | 2 | 3 | 4 | 5;
 
 
 export function UncontrolledRating() {
-    const [rating, setRating] = useState(0)
+    const [rating, setRating] = useState<RatingType>(0)
 
     console.log("Rating rendering")
 
@@ -24,8 +24,6 @@ export function UncontrolledRating() {
 
 type StarPropsType = {
     selected: boolean
-
-
     handler: () => void
 
 }
