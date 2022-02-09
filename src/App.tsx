@@ -16,20 +16,13 @@ function App() {
     let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
     const [switchOn, setSwitchOn] = useState(true)
 
+    const callback = () => {
+        setAccordionCollapsed(!accordionCollapsed)
+    }
 
     return (
         <div className="App">
-             <UncontrolledOnOff onChange={setSwitchOn}/>
-            <UncontrolledAccordion title={"Menu"}/>
-            <UncontrolledRating/>
-            <Rating value={ratingValue} onClick={setRatingValue}/>
-            <Accordion
-                title={"Users"}
-                collapsed={accordionCollapsed}
-                setAccordionCollapsed={setAccordionCollapsed}/>
-                <OnOff on={switchOn} setOn={setSwitchOn}/>
-
-
+          tratata
         </div>
     );
 }
