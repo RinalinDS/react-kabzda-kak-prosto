@@ -7,7 +7,7 @@ export type ItemsType = {
 
 export type AccordionPropsType = {
     /**
-     * Elements that is shown it title
+     * Elements that is shown in title
      */
     title: string
     /**
@@ -19,9 +19,9 @@ export type AccordionPropsType = {
     onClick: (value: any) => void
 }
 
-export function Accordion(props: AccordionPropsType) {
+export const Accordion = React.memo(AccordionSecret)
 
-
+export function AccordionSecret(props: AccordionPropsType) {
     console.log("UncontrolledAccordion rendering")
     return (
         <div>
@@ -41,7 +41,9 @@ type AccordionTitlePropsType = {
 
 }
 
-function AccordionTitle(props: AccordionTitlePropsType) {
+export const AccordionTitle = React.memo(AccordionTitleSecret)
+
+function AccordionTitleSecret(props: AccordionTitlePropsType) {
     console.log("AccordionTitle rendering")
     const onClickCallback = ()=> props.onChange()
     return (
@@ -54,7 +56,9 @@ type AccordionBodyPropsType = {
     onClick: (value: any) => void
 }
 
-function AccordionBody(props:AccordionBodyPropsType) {
+export const AccordionBody = React.memo(AccordionBodySecret)
+
+function AccordionBodySecret(props:AccordionBodyPropsType) {
     console.log("AccordionBody rendering")
     return (
         <ul>
