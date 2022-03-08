@@ -7,7 +7,7 @@ export default {
 
 
 
-export const Example = () => {
+export const Example = ( ) => {
     console.log('example');
     const [count, setCount] = useState(0);
     const [users, setUsers] = useState(['Denis', 'Pasha', 'Masha' , 'Dasha'])
