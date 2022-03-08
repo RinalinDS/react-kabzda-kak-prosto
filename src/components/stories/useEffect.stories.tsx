@@ -146,16 +146,16 @@ export const SimpleClockExampleMyVariant = () => {
 
 export const ResetEffectStory = () => {
 
-    const [count, setCount] = useState(0)
-    console.log('component rendered');
+    const [count, setCount] = useState(1)
+    console.log('component rendered' + count);
 
 
     useEffect(() => {
-        console.log('Effect occurred');
+        console.log('Effect occurred' + count);
         return () => {
-            console.log('reset effect')
+            console.log('reset effect' + count)
         }
-    }, [])
+    }, [count])
 
     return (
         <div>
@@ -163,6 +163,60 @@ export const ResetEffectStory = () => {
 
 
             <button onClick={() => setCount(state => state + 1)}> + count</button>
+
+        </div>
+    )
+}
+
+
+export const KeyPressStory = () => {
+
+    const [text, setText] = useState('')
+    console.log('component rendered' + text);
+
+
+    useEffect(() => {
+        console.log('Effect occurred' + text);
+        const handler = (e: KeyboardEvent) => {
+            setText(text + e.key)
+        }
+        window.addEventListener('keypress', handler)
+        return () => {
+            window.removeEventListener('keypress', handler)
+        }
+    }, [text])
+
+    return (
+        <div>
+            Current text: {text}
+
+
+        </div>
+    )
+}
+
+
+export const SetTimeoutReturnExample = () => {
+
+    const [text, setText] = useState('')
+    console.log('component rendered' + text);
+
+
+    useEffect(() => {
+        const id = setTimeout(() => {
+            console.log('TIMEOUT');
+            setText('3 seconds passed')
+        }, 3000)
+
+        return () => {
+            clearTimeout(id)
+        }
+    }, [text])
+
+    return (
+        <div>
+            Current text: {text}
+
 
         </div>
     )
